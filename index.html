@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Power Notepad</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link rel="stylesheet" href="styles/font.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/contorls.css">
+    <link rel="stylesheet" href="styles/titlebar.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="titlebar">
+        <span id="title">
+            <span id="title-text">Light Bulb</span>
+        </span>
+    </div>
+    <div id="tabs">
+        <!--<span id="file" class="con-men">File</span>
+        <span id="edit" class="con-men">Edit</span>
+        <span id="view" class="con-men">View</span>
+        <span id="help" class="con-men">Options/Help</span>
+        <span id="special" class="con-men">Special</span>-->
+
+        <span id="trafic-lights">
+            <button id="minimize-app" class="trafic-btn"></button>
+            <button id="maximize-app" class="trafic-btn"></button>
+            <button id="close-app" class="trafic-btn"></button>
+        </span>
+    </div>
+    <div id="Modal" class="modal">
+        <div class="modal-content">
+          <span class="close-m">&times;</span>
+          <p id="m-txt">
+          </p>
+        </div>
+      </div>
+    <div id="main">
+        <div id="controls">
+            <span id="back" class="con-btn" onmouseup="back()">🡠</span>
+            <span id="forward" class="con-btn" onmouseup="forward()">🡢</span>
+            <span id="reload" class="con-btn" onmouseup="reload()">⭮</span>
+            <input id="search" type="search" placeholder="Search">
+            <span id="menu" class="con-btn">⋮</span>
+        </div>
+        <div id="menus" class="menus menus-h">
+            <div>
+                <h5>tools</h5>
+                <span onmouseup="devtoolopen()">dev tools</span>
+            </div>
+            <div>
+                <h5>special</h5>
+                <span onmouseup="about()">💡About Light Bulb💡</span>
+                <span onmouseup="openupdatelin()" id="update">Update</span>
+                <span onclick="tellspe()">🎉special🎉</span>
+                <span onmouseup="creator()">👨‍💻Creator's Website👨‍💻</span>
+                <span onmouseup="repo()">📦Project Repo📦</span>
+                <span onmouseup="prosite()">🖥Project Website🖥</span>
+            </div>
+        </div>
+        <webview src="file/pages/newtab.html" id="view"></webview>
+    </div>
+    <!--<h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.-->
+    <script src="scripts/require.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app-controls.js"></script>
+    <script src="scripts/menus.js"></script>
+    <script src="scripts/special.js"></script>
+    <script src="scripts/lz-string.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/view.js"></script>
+</body>
+</html>

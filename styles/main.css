@@ -1,0 +1,43 @@
+#search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius:10px;
+    background: lightcoral;
+    opacity: 0.6;
+  }
+#search::-webkit-search-cancel-button:hover {
+    -webkit-appearance: none;
+    border-radius:5px;
+    opacity: 1;
+}
+#search {
+    width: 86.54vw;
+    height: 33px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+#search:focus {
+    box-shadow: 0 0 15px lightgrey;
+}
+#controls {
+    margin: 10px;
+}
+#back {
+    margin-left: 10px;
+}
+.con-btn {
+    background-color: white;
+    color: grey;
+    padding: 5px 10px 5px 10px;
+    margin: 0px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.con-btn:hover {
+    color: black;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px lightgrey;
+  }

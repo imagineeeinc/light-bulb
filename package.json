@@ -1,0 +1,65 @@
+{
+  "name": "light-bulb",
+  "version": "1.0.0",
+  "description": "A browser written in JavaScript",
+  "main": "application.js",
+  "scripts": {
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist-win": "electron-builder --win",
+    "dist-win-32": "electron-builder --win --ia32",
+    "dist-mac": "electron-builder --mac",
+    "dist-linux": "electron-builder --linux"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imagineeeinc/light-bulb.git"
+  },
+  "keywords": [
+    "notepad"
+  ],
+  "author": "imagineee",
+  "license": "mit",
+  "bugs": {
+    "url": "https://github.com/imagineeeinc/light-bulb/issues"
+  },
+  "homepage": "https://github.com/imagineeeinc/light-bulb#readme",
+  "dependencies": {
+    "electron-dl": "^3.0.2"
+  },
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-reload": "^1.5.0",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "light bulb",
+    "productName": "light bulb browser",
+    "copyright": "Copyright © 2020 Imagineee",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "default",
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "portable",
+        "zip",
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "apk",
+        "zip",
+        "deb",
+        "rpm"
+      ]
+    }
+  }
+}

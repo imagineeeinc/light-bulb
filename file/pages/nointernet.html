@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>No internet</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link rel="stylesheet" href="../../styles/font.css">
+    <style>
+        body {
+            font-family: plex;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+    <iframe id="game" style="display: none; height: 340px; width: 340px; border: none;" src="2048.html"></iframe>
+    </div>
+    <div id="text">
+    <h1 id="no" style="font-size: 100px;">0 Internet</h1>
+    <h1 style="color: blue;">No Internet</h1>
+    <p>
+        Try: 
+        <ul>
+            <li>Checking the network cables, modem, and router</li>
+            <li>Reconecting to wifi</li>
+        </ul>
+    </p>
+    </div>
+    <script>
+        var no = 0
+        document.getElementById("no").onclick = function(event) {
+            //2048, so 2+0+4+8=14
+            if (event.detail === 14) {
+                game()
+            }
+            if (event.detail === 3) {
+                click()
+            }
+        }
+        function game() {
+            document.getElementById("game").style.display = "block"
+            document.getElementById("text").style.display = "none"
+        }
+        function click() {
+            no += 1
+            document.getElementById("no").innerHTML = no + " Internet"
+        }
+    </script>
+</body>
+</html>
