@@ -3,6 +3,8 @@ const { BrowserWindow } = require("electron");
 const { app } = require("electron");
 const { remote } = require('electron')
 const { shell } = require('electron')
+const { clipboard } = require('electron')
+const { Menu, MenuItem } = remote
 win = remote.getCurrentWindow()
 const contents = win.webContents
 var ipc = require('electron').ipcRenderer
@@ -11,8 +13,6 @@ fs = require('fs');
 
 var findpage = true
 var search = document.getElementById("search")
-var view = document.getElementById("view")
-var modal = document.getElementById("Modal");
-var mtext = document.getElementById("m-txt");
-
-var close = document.getElementsByClassName("close-m")[0];
+search.select()
+var view = document.getElementById("webview")
+var secure = document.getElementById("security")

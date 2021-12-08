@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Light Bulb</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link rel="stylesheet" href="../styles/font.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+</head>
+<body>
+    <div id="titlebar">
+        <div id="title-bar">
+        <div id="controls">
+            <button class="mi" title="Go Back to Previous page" onmouseup="goBack()">arrow_back</button>
+            <button class="mi" title="Go Forward a page" onmouseup="goForward()">arrow_forward</button>
+            <button class="mi" title="Refresh this page" onmouseup="reload()">refresh</button>
+            <button class="mi" title="Open the homepage" onmouseup="view.setAttribute('src', '../file/pages/newtab.html')">home</button>
+        </div>
+        <div id="searchbox">
+            <button class="mi" id="security">https</button>
+            <!--lock_open for not secure-->
+            <input type="search" id="search" placeholder="Search or type a URL">
+            <button class="mi" onmouseup="searchnow(search.value)">search</button>
+            <button class="mi">share</button>
+        </div>
+        <div id="extra">
+            <button class="mi">bookmark_border</button>
+            <!--bookmark for bookmarked-->
+            <button class="mi">zoom_in</button>
+            <button class="mi">photo_camera</button>
+            <button class="mi">extension</button>
+            <button id="menu" title="menu" class="mi">menu</button>
+        </div>
+    </div>
+        <div id="traffic">
+            <button id="minimize" title="minimize" class="mi" onmouseup="minimize()">horizontal_rule</button>
+            <button id="maximize" title="maximize" class="mi" onmouseup="maximize()">crop_din</button>
+            <button id="close" title="close" class="mi" onmouseup="closeapp()">close</button>
+        </div>
+    </div>
+    <div id="tab-holder">
+        <div id="tabs" class="tabs"></div>
+        <button id="new-tab" title="open another new tab" class="mi">add_circle_outline</button>
+    </div>
+    <webview id="webview" src="../file/pages/newtab.html"></webview>
+    <script src="../scripts/require.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/search.js"></script>
+    <script src="../scripts/view.js"></script>
+</body>
+</html>

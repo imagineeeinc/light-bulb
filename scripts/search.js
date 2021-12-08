@@ -1,28 +1,7 @@
 //https://www.google.com/search?q=stadia&oq=stadia
 //https://google.com
-setInterval(function() {
-    if (search === document.activeElement) {
-        
-    } else {
-        if (search.value.indexOf("newtab.html") == -1) {
-            if (navigator.onLine === true) {
-                if (findpage === true) {
-                    if (search.value == "") {
-
-                    } else {
-                        search.value = view.src
-                    }
-                } else if (findpage === false) {
-                    search.value = search.value
-                }
-            } else {
-                search.value = search.value
-            }
-        } else if (search.value.indexOf("newtab.html") > -1) {
-            search.value = ""
-        }
-    }
-}, 50)
+var urlRegex = /[(http(s)?)(*?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig; 
+var linkRegex = /[(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig;
 search.onkeydown = function(event) {
     //console.log(event)
     if (event.keyCode === 13) {
@@ -33,23 +12,26 @@ search.onkeydown = function(event) {
 function searchnow(word) {
     if (word != undefined) {
         if (navigator.onLine === true) {
-            if (word.substr(0, 8) == "https://" || word.substr(0, 7) == "http://") {
+            if (word.match(urlRegex)) {
                 view.setAttribute("src", word)
-            } else if (word.substr(0, 6) == "ftp://") {
-                view.setAttribute("src", word)
-            } else if (word.indexOf(" ") == -1 && word.indexOf(".") > -1) {
-                view.setAttribute("src", "https://" + word)
-            } else if (word.indexOf("://") > -1) {
-                view.setAttribute("src", word)
-            } else if (word.substr(0, 7) == "file://") {
-                view.setAttribute("src", word)
+            } if (word.match(linkRegex)) {
+                view.setAttribute("src", 'https://'+word)
             } else {
-                view.setAttribute("src", "https://www.google.com/search?q=" + word + "&oq=" + word)
+                view.setAttribute("src", "https://www.google.com/search?q=" + word)
             }
         } else if (navigator.onLine === false) {
-            view.setAttribute("src", "file/pages/nointernet.html")
+            view.setAttribute("src", "../file/pages/nointernet.html")
         }
     } else if (word === undefined) {
-        view.setAttribute("src", "file/pages/newtab.html")
+        view.setAttribute("src", "../file/pages/newtab.html")
     }
+}
+function reload() {
+    view.reload();
+}
+function goBack() {
+    view.goBack();
+}
+function goForward() {
+    view.goForward();
 }

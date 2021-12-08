@@ -8,30 +8,53 @@
     <link rel="stylesheet" href="../../styles/font.css">
     <style>
         body {
-            background-image: url(../back/default.jpg);
             background-color: #ffd323;
             font-family: plex;
-            margin: 100px;
-            margin-bottom: 0;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center center center;  
             background-attachment: fixed;
             height: 100%;
+            cursor: default;
+            overflow-y: hidden;
         }
         * {
             transition-duration: .2s;
         }
-        #pexels {
+        #cont {
             position: absolute;
-            right: 0;
-            bottom: 0;
-            color: darkslategrey;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+        }
+        input {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 20px;
+            padding-left: 10px;
+            outline: none;
+            font-family: inherit;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; margin: 35% auto;">Search 🔎 with light Bulb 💡</h1>
-    <a href="https://www.pexels.com" id="pexels">Photos provided by Pexels</a>
+    <div id="cont">
+        <h1 style="text-align: center; margin: 35% auto;">Search 🔎 with light Bulb 💡</h1>
+        <form>
+            <input type="text" id="search" placeholder="Search..." style="width: 100%; margin: 0 auto;">
+        </form>
+    </div>
+    <script>
+        document.getElementById("search").focus();
+        document.querySelector("form").onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = 'https:\/\/www.google.com/search?q='+document.getElementById("search").value
+            document.getElementById("search").blur();
+        }
+    </script>
 </body>
 </html>

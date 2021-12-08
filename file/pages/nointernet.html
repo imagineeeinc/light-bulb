@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="../../styles/font.css">
     <style>
         body {
+            user-select: none;
             font-family: plex;
             margin: 100px;
+            height: 100%;
         }
     </style>
 </head>
 <body>
-    <div style="text-align: center;">
-    <iframe id="game" style="display: none; height: 340px; width: 340px; border: none;" src="2048.html"></iframe>
+    <div style="text-align: center; height: 100%;width: 100vw;">
+    <iframe id="game" style="display: none; height: 100vh; width: 100%; border: none;" src="2048.html"></iframe>
     </div>
     <div id="text">
     <h1 id="no" style="font-size: 100px;">0 Internet</h1>
@@ -35,13 +37,14 @@
             if (event.detail === 14) {
                 game()
             }
-            if (event.detail === 3) {
+            if (event.detail === 2) {
                 click()
             }
         }
         function game() {
             document.getElementById("game").style.display = "block"
             document.getElementById("text").style.display = "none"
+            document.body.style.margin = "0"
         }
         function click() {
             no += 1

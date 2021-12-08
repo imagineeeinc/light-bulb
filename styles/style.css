@@ -2,7 +2,8 @@
     margin: 0px;
     padding: 0px;
     font-family: plex,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    animation-name: view;
+    font-weight: 900;
+		animation-name: view;
     animation-duration: 0.2s;
 }
 @keyframes view {
@@ -11,6 +12,7 @@
 }
 * {
   transition-duration: .2s;
+	background-color: white;
 }
 body {
   padding: 0;
@@ -44,17 +46,207 @@ body {
 button {
   background-color: white;
   color: grey;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
+  padding: 2px;
+	height: 100%;
+  border: 0 solid lightgrey;
   outline: none;
   cursor: pointer;
+	-webkit-app-region: no-drag;
+	border-radius: 30px;
 }
 button:hover {
   color: black;
-  border: 1px solid grey;
+	background: rgba(0,0,0,0.1);
 }
 a {
   color: darkslateblue;
+}
+input {
+	font-family: inherit;
+}
+#search::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+#search {
+	width: auto;
+	height: 100%;
+	padding: 0;
+	padding-left: 3px;
+	margin: 0;
+	border: 0 solid rgba(0,0,0,0);
+	border-radius: 30px;
+	outline: none;
+}
+#searchbox:focus-within {
+	box-shadow: 0 0 15px lightgrey;
+}
+#searchbox {
+	width: auto;
+	-webkit-app-region: no-drag;
+	height: 25px;
+	border: 1px solid lightgrey;
+	border-radius: 30px;
+	padding: 0;
+	display: grid; 
+  grid-template-columns: 1fr 10fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . ."; 
+	z-index: 5;
+}
+#title-bar {
+	padding: 0;
+	height: 25px;
+
+	display: grid; 
+  grid-template-columns: 1fr 3fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."; 
+}
+#titlebar {
+	-webkit-app-region: drag;
+  /*background-color: var(--background);*/
+  display: grid; 
+  grid-template-columns: 1fr 30px; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "title-bar traffic";
+  user-select: none;
+  height: 30px;
+	padding: 0;
+}
+#traffic {
+  position: absolute;
+  right: 0;
+  margin-top: 0;
+  padding-top: 0;
+  -webkit-app-region: no-drag;
+	width: 90px;
+	border-radius: 30px 0px 0px 30px;
+
+	display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."; 
+	transition-duration: 1s;
+	width: 30px;
+}
+#traffic:hover {
+	width: 90px;
+	background-color: rgb(231, 231, 231);
+}
+
+#menu {
+  -webkit-app-region: no-drag !important;
+}
+#traffic > button {
+	font-size: large;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+	border-radius: 30px;
+}
+#traffic > button:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+#controls {
+	padding-right: 50%;
+	display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . ."; 
+}
+#extra {
+	padding-left: 40%;
+	display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . . ."; 
+}
+
+#tab-holder {
+	margin-bottom: 3px;
+  height: 30px;
+  width: 100vw;
+  user-select: none;
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "tabs newtab";
+}
+.tabs { grid-area: tabs; }
+#tabs {
+  height: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+#tabs > span {
+  border: 0.01px solid grey;
+  text-align: center;
+}
+#tabs > span:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#tabs > span:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+#tabs > span > button {
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  width: 22px;
+  height: 21px;
+  margin: 0;
+  /*margin-top: 3.5px;*/
+  padding: 0;
+  float: right;
+  z-index: 5;
+  position: static;
+}
+#tabs > span > button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}#tabs > span > button:active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+#tabs > span > button > img {
+  height: 23px;
+}
+#tabs > span:not(.selected) > button {
+  display: none;
+}
+#tabs > span:not(.selected) {
+  border-bottom: 2px solid var(--foreground) !important;
+}
+.selected {
+  border: 2px solid var(--foreground) !important;
+  border-bottom: 0px solid var(--background) !important;
+}
+.selected > button {
+  display: block;
+}
+
+html {
+	height: 100%;
+}
+#webview {
+	position: absolute;
+	top: 60px;
+	bottom: 0px;
+	width: 100%;
 }

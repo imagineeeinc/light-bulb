@@ -4,11 +4,12 @@
   "description": "A browser written in JavaScript",
   "main": "application.js",
   "scripts": {
-    "electron": "electron .",
+    "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder -m -l -w",
     "dist-win": "electron-builder --win",
     "dist-win-32": "electron-builder --win --ia32",
+    "dist-win-all": "electron-builder --win --ia32 --armv7l --arm64",
     "dist-mac": "electron-builder --mac",
     "dist-linux": "electron-builder --linux"
   },
@@ -17,7 +18,7 @@
     "url": "git+https://github.com/imagineeeinc/light-bulb.git"
   },
   "keywords": [
-    "notepad"
+    "browser"
   ],
   "author": "imagineee",
   "license": "mit",
@@ -30,15 +31,16 @@
   },
   "devDependencies": {
     "electron": "^10.1.5",
-    "electron-reload": "^1.5.0",
-    "electron-builder": "^22.9.1"
+    "electron-builder": "^22.9.1",
+    "electron-reload": "^1.5.0"
   },
   "build": {
     "appId": "light bulb",
     "productName": "light bulb browser",
-    "copyright": "Copyright © 2020 Imagineee",
+    "copyright": "Copyright © 2021 Imagineee",
     "mac": {
       "category": "public.app-category.productivity",
+      "darkModeSupport": true,
       "target": [
         "default",
         "dmg",
@@ -46,6 +48,7 @@
       ]
     },
     "win": {
+      "publisherName": "Imagineee",
       "target": [
         "portable",
         "zip",
@@ -53,12 +56,37 @@
       ]
     },
     "linux": {
+      "category": "Browser",
       "target": [
-        "AppImage",
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64"
+          ]
+        },
         "apk",
-        "zip",
-        "deb",
-        "rpm"
+        "zip"
       ]
     }
   }
